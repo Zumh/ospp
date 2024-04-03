@@ -44,6 +44,7 @@
   * A **host operating system** is the primary operating system that runs on a computer.
   * A **guest operating system** is a virtual operating system that runs within a host operating system, allowing multiple operating systems to run on a single computer.
 - Define the term, direct memory access (DMA).
+  **Direct memory access (DMA)** is a way for hardware I/O devices to transfer data directly into/out of main memory at a location specified by the operating system. This allows data to be transferred without the involvement of the CPU, which can improve performance.
 - For the following questions, take a moment to speculate. We provide answers to these questions throughout the book, but, given what you know now, how would you answer them? Before there were operating systems, someone needed to develop solutions without being able to look them up! How would you have designed the first operating system?
 
   - Suppose a computer system and all of its applications were completely bug free. Suppose further that everyone in the world were completely honest and trustworthy. In other words, we need not consider fault isolation.
