@@ -4,16 +4,45 @@
   - **As Illusionist, an operating system creates the illusion of a larger, more powerful computer than actually exists.** For example, an operating system might provide a virtual memory system that makes it appear as if there is more memory available than there actually is. This allows programs to use more memory than would be possible on a physical computer with the same amount of RAM.
   - **As Glue, an operating system provides a common set of services that applications can use, such as file I/O, networking, and security.** This allows applications to be written without having to worry about the underlying details of the hardware.
 - What is the difference, if any, between the following terms:
-  - Reliability vs. availability?
-  - Security vs. privacy?
-  - Security enforcement vs. security policy?
-  - Throughput vs. response time?
-  - Efficiency vs. overhead?
-  - Application programming interface (API) vs. abstract virtual machine (AVM)?
-  - Abstract virtual machine (AVM) vs. hardware abstraction layer (HAL)?
-  - Proprietary vs. open operating system?
-  - Batch vs. interactive operating system?
-  - Host vs. guest operating system?
+  **Reliability vs. availability:**
+  * **Reliability** refers to the ability of a system to perform its intended function correctly and consistently, even in the face of errors or failures.
+  * **Availability** refers to the ability of a system to be accessed and used when needed.
+  
+  **Security vs. privacy:**
+  * **Security** refers to the measures taken to protect a system from unauthorized access, use, disclosure, disruption, modification, or destruction.
+  * **Privacy** refers to the right of individuals to control the collection, use, and disclosure of their personal information.
+  
+  **Security enforcement vs. security policy:**
+  * **Security enforcement** refers to the mechanisms used to implement a security policy.
+  * **Security policy** refers to the rules and guidelines that govern the security of a system.
+  
+  **Throughput vs. response time:**
+  * **Throughput** refers to the rate at which a system can process tasks.
+  * **Response time** refers to the amount of time it takes for a system to respond to a request.
+  
+  **Efficiency vs. overhead:**
+  * **Efficiency** refers to the ability of a system to perform a task with minimal use of resources.
+  * **Overhead** refers to the additional resources required to implement a system or feature.
+  
+  **Application programming interface (API) vs. abstract virtual machine (AVM):**
+  * An **API** is a set of routines, protocols, and tools for building software applications.
+  * An **AVM** is a software environment that provides an abstraction of the underlying hardware, allowing developers to write code that can run on multiple platforms.
+  
+  **Abstract virtual machine (AVM) vs. hardware abstraction layer (HAL):**
+  * An **AVM** provides an abstraction of the underlying hardware, allowing developers to write code that can run on multiple platforms.
+  * A **HAL** is a software layer that provides an abstraction of the underlying hardware, allowing operating systems to run on different types of hardware.
+  
+  **Proprietary vs. open operating system:**
+  * A **proprietary operating system** is owned and controlled by a single company.
+  * An **open operating system** is freely available and can be modified and distributed by anyone.
+  
+  **Batch vs. interactive operating system:**
+  * A **batch operating system** processes jobs in batches, without user interaction.
+  * An **interactive operating system** allows users to interact with the system directly, through a command-line interface or graphical user interface.
+  
+  **Host vs. guest operating system:**
+  * A **host operating system** is the primary operating system that runs on a computer.
+  * A **guest operating system** is a virtual operating system that runs within a host operating system, allowing multiple operating systems to run on a single computer.
 - Define the term, direct memory access (DMA).
   - For the following questions, take a moment to speculate. We provide answers to these questions throughout the book, but, given what you know now, how would you answer them? Before there were operating systems, someone needed to develop solutions without being able to look them up! How would you have designed the first operating system?
 
