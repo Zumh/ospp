@@ -49,8 +49,14 @@
 
   - Suppose a computer system and all of its applications were completely bug free. Suppose further that everyone in the world were completely honest and trustworthy. In other words, we need not consider fault isolation.
     - How should an operating system allocate time on the processor? Should it give the entire processor to each application until it no longer needs it? If there were multiple tasks ready to go at the same time, should it schedule first the task with the least amount of work to do or the one with the most? Justify your answer.
+      - **The operating system should allocate time on the processor by giving each application a time slice.** This ensures that all applications get a chance to run and no one application monopolizes the processor. If there are multiple tasks ready to go at the same time, the operating system should schedule the task with the least amount of work to do first. This will help to keep the system responsive and prevent any one task from taking too long to complete.
+
     - How should the operating system allocate physical memory to applications? What should happen if the set of applications does not fit in memory at the same time?
+      - **The operating system should allocate physical memory to applications by dividing the memory into fixed-size pages.** Each application is then assigned a set of pages that it can use. If an application needs more memory, it can request additional pages from the operating system. If the system does not have enough free memory to satisfy the request, the operating system can either kill the application or swap some of its pages out to disk.
     - How should the operating system allocate its disk space? Should the first user to ask acquire all of the free space? What would the likely outcome be for that policy?
+      - **The operating system should allocate disk space to applications by dividing the disk into fixed-size blocks.** Each application is then assigned a set of blocks that it can use. If an application needs more space, it can request additional blocks from the operating system. If the system does not have enough free space to satisfy the request, the operating system can either kill the application or delete some of its files.
+      - **The first user to ask for disk space should not be allowed to acquire all of the free space.** This would prevent other users from being able to use the disk. Instead, the operating system should allocate disk space fairly among all users.
+
   - Now suppose the computer system needs to support fault isolation. What hardware and/or operating support do you think would be needed to do the following?
     - Protect an application’s data structures in memory from being corrupted by other applications.
     - Protecting one user’s disk files from being accessed or corrupted by another user.
