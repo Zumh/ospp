@@ -44,22 +44,22 @@
   * A **host operating system** is the primary operating system that runs on a computer.
   * A **guest operating system** is a virtual operating system that runs within a host operating system, allowing multiple operating systems to run on a single computer.
 - Define the term, direct memory access (DMA).
-  - For the following questions, take a moment to speculate. We provide answers to these questions throughout the book, but, given what you know now, how would you answer them? Before there were operating systems, someone needed to develop solutions without being able to look them up! How would you have designed the first operating system?
+- For the following questions, take a moment to speculate. We provide answers to these questions throughout the book, but, given what you know now, how would you answer them? Before there were operating systems, someone needed to develop solutions without being able to look them up! How would you have designed the first operating system?
 
-- Suppose a computer system and all of its applications were completely bug free. Suppose further that everyone in the world were completely honest and trustworthy. In other words, we need not consider fault isolation.
-  - How should an operating system allocate time on the processor? Should it give the entire processor to each application until it no longer needs it? If there were multiple tasks ready to go at the same time, should it schedule first the task with the least amount of work to do or the one with the most? Justify your answer.
-  - How should the operating system allocate physical memory to applications? What should happen if the set of applications does not fit in memory at the same time?
-  - How should the operating system allocate its disk space? Should the first user to ask acquire all of the free space? What would the likely outcome be for that policy?
-- Now suppose the computer system needs to support fault isolation. What hardware and/or operating support do you think would be needed to do the following?
-  - Protect an application’s data structures in memory from being corrupted by other applications.
-  - Protecting one user’s disk files from being accessed or corrupted by another user.
-  - Protecting the network from a virus trying to use your computer to send spam.
-- How should an operating system support communication between applications? Explain your reasoning.
-  - Through the file system?
-  - Through messages passed between applications?
-  - Through regions of memory shared between the applications?
-  - All of the above?
-  - None of the above?
+  - Suppose a computer system and all of its applications were completely bug free. Suppose further that everyone in the world were completely honest and trustworthy. In other words, we need not consider fault isolation.
+    - How should an operating system allocate time on the processor? Should it give the entire processor to each application until it no longer needs it? If there were multiple tasks ready to go at the same time, should it schedule first the task with the least amount of work to do or the one with the most? Justify your answer.
+    - How should the operating system allocate physical memory to applications? What should happen if the set of applications does not fit in memory at the same time?
+    - How should the operating system allocate its disk space? Should the first user to ask acquire all of the free space? What would the likely outcome be for that policy?
+  - Now suppose the computer system needs to support fault isolation. What hardware and/or operating support do you think would be needed to do the following?
+    - Protect an application’s data structures in memory from being corrupted by other applications.
+    - Protecting one user’s disk files from being accessed or corrupted by another user.
+    - Protecting the network from a virus trying to use your computer to send spam.
+  - How should an operating system support communication between applications? Explain your reasoning.
+    - Through the file system?
+    - Through messages passed between applications?
+    - Through regions of memory shared between the applications?
+    - All of the above?
+    - None of the above?
 - How would you design combined hardware and software support to provide the illusion of a nearly infinite virtual memory on a limited amount of physical memory?
 - How would you design a system to run an entire operating system as an application on top of another operating system?
 - How would you design a system to update complex data structures on disk in a consistent fashion despite machine crashes?
