@@ -4,7 +4,7 @@
   - **As Illusionist, an operating system creates the illusion of a larger, more powerful computer than actually exists.** For example, an operating system might provide a virtual memory system that makes it appear as if there is more memory available than there actually is. This allows programs to use more memory than would be possible on a physical computer with the same amount of RAM.
   - **As Glue, an operating system provides a common set of services that applications can use, such as file I/O, networking, and security.** This allows applications to be written without having to worry about the underlying details of the hardware.
 - What is the difference, if any, between the following terms:
-  - **Reliability vs. availability:**
+  **Reliability vs. availability:**
   * **Reliability** refers to the ability of a system to perform its intended function correctly and consistently, even in the face of errors or failures.
   * **Availability** refers to the ability of a system to be accessed and used when needed.
   
