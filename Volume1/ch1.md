@@ -58,9 +58,12 @@
       - **The first user to ask for disk space should not be allowed to acquire all of the free space.** This would prevent other users from being able to use the disk. Instead, the operating system should allocate disk space fairly among all users.
 
   - Now suppose the computer system needs to support fault isolation. What hardware and/or operating support do you think would be needed to do the following?
-    - Protect an application’s data structures in memory from being corrupted by other applications.
-    - Protecting one user’s disk files from being accessed or corrupted by another user.
-    - Protecting the network from a virus trying to use your computer to send spam.
+    **<ins>Supporting fault isolation requires the following hardware and/or operating support: </ins>**
+    
+    * **Memory protection:** Hardware support to prevent one process from accessing the memory of another process.
+    * **Privileged instructions:** Instructions that can only be executed by the operating system kernel.
+    * **Timer interrupts:** The ability for the operating system kernel to periodically regain control of the processor.
+    * **The process abstraction:** A mechanism to isolate each application from other applications and the operating system kernel.
   - How should an operating system support communication between applications? Explain your reasoning.
     - Through the file system?
     - Through messages passed between applications?
