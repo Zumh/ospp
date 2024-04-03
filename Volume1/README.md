@@ -1,4 +1,4 @@
-A comprehensive overview of operating systems, covering key concepts such as protection, concurrency, memory management, and reliable storage. 
-It explores the design principles and implementation techniques behind modern operating systems, 
-discusses their role in supporting diverse applications and users, and highlights the challenges and trade-offs involved in operating system design. 
-The text also touches on the historical evolution of operating systems and their ongoing relevance in today's computing landscape.
+- A comprehensive overview of operating systems, covering key concepts such as protection, concurrency, memory management, and reliable storage. 
+- It explores the design principles and implementation techniques behind modern operating systems, 
+- discusses their role in supporting diverse applications and users, and highlights the challenges and trade-offs involved in operating system design. 
+- The text also touches on the historical evolution of operating systems and their ongoing relevance in today's computing landscape.
