@@ -73,6 +73,16 @@
     - Through regions of memory shared between the applications?
     - All of the above?
     - None of the above?
+    - Ansers:
+    - **An operating system can support communication between applications through the file system, through messages passed between applications, or through regions of memory shared between the applications.**
+
+    * **The file system** provides a way for applications to store and retrieve data on a persistent basis. Applications can communicate by writing data to files that can be read by other applications.
+    * **Messages passed between applications** provide a way for applications to communicate directly with each other. This can be done through a variety of mechanisms, such as pipes, sockets, or message queues.
+    * **Regions of memory shared between applications** provide a way for applications to share data in memory. This can be done through a variety of mechanisms, such as shared memory segments or memory-mapped files.
+    
+    **All of these methods have their own advantages and disadvantages.** The file system is a good option for storing and retrieving large amounts of data. Messages passed between applications are a good option for real-time communication. Regions of memory shared between applications are a good option for sharing data that needs to be accessed quickly.
+    
+    **The best choice for supporting communication between applications will depend on the specific requirements of the applications.**
 - How would you design combined hardware and software support to provide the illusion of a nearly infinite virtual memory on a limited amount of physical memory?
 - How would you design a system to run an entire operating system as an application on top of another operating system?
 - How would you design a system to update complex data structures on disk in a consistent fashion despite machine crashes?
