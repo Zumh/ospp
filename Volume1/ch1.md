@@ -29,11 +29,11 @@
   * An **AVM** is a software environment that provides an abstraction of the underlying hardware, allowing developers to write code that can run on multiple platforms.
   
   **Abstract virtual machine (AVM) vs. hardware abstraction layer (HAL):**   
-    **AVM** provides a consistent interface for applications to interact with the operating system, regardless of the underlying hardware. This makes it easier to port applications to different platforms.
+    - **AVM** provides a consistent interface for applications to interact with the operating system, regardless of the underlying hardware. This makes it easier to port applications to different platforms.
     
-    **HAL** provides a layer of abstraction between the operating system and the hardware. This allows the operating system to be more portable and to support a wider range of hardware.
+    - **HAL** provides a layer of abstraction between the operating system and the hardware. This allows the operating system to be more portable and to support a wider range of hardware.
     
-    **Both AVM and HAL are essential for creating portable and efficient operating systems**. They provide a way to hide the details of the underlying hardware from applications and to make it easier to develop and maintain operating systems.
+    - **Both AVM and HAL are essential for creating portable and efficient operating systems**. They provide a way to hide the details of the underlying hardware from applications and to make it easier to develop and maintain operating systems.
   
   **Proprietary vs. open operating system:**
   * A **proprietary operating system** is owned and controlled by a single company.
