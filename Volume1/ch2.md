@@ -191,4 +191,16 @@ Explain the difference (if any) between the time required by your simple procedu
   6. The kernel will return to the user-mode program.
   
   This approach would allow us to implement a timer interrupt on hardware that does not support interrupts.
+  
+15. Explain the steps that an operating system goes through when the CPU receives an interrupt.
+  - **When the CPU receives an interrupt, the operating system goes through the following steps:**
+  
+  1. **Save the current state of the CPU.** This includes the program counter, stack pointer, and registers.
+  2. **Determine the cause of the interrupt.** This is done by examining the interrupt vector table, which is a table of pointers to interrupt handlers.
+  3. **Invoke the interrupt handler.** The interrupt handler is a procedure that is responsible for handling the interrupt.
+  4. **Execute the interrupt handler.** The interrupt handler typically performs some action, such as reading data from a device or writing data to a device.
+  5. **Restore the state of the CPU.** This includes restoring the program counter, stack pointer, and registers.
+  6. **Resume execution of the interrupted process.** The process that was interrupted can now continue executing.
 
+16. When an operating system receives a system call from a program, a switch to operating system code occurs with the help of the hardware. The hardware sets the mode of operation to kernel mode, calls the operating system trap handler at a location specified by the operating system, and lets the operating system return to user mode after it finishes its trap handling.
+Consider the stack on which the operating system must run when it receives the system call. Should this stack be different from the one the application uses, or could it use the same stack as the application program? Assume that the application program is blocked while the system call runs.
