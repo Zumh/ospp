@@ -169,6 +169,7 @@ Explain the difference (if any) between the time required by your simple procedu
   In contrast, if the hardware supports traps, the operating system kernel could simply execute a trap instruction to transfer control to the page fault handler. This would be a much simpler and more reliable solution.
   
   **Therefore, it is not possible to create a satisfactory substitute for traps using only interrupts and exceptions on hardware that does not support a trap instruction.**
+
 14. Suppose you have to implement an operating system on hardware that supports exceptions and traps but does not have interrupts. Can you devise a satisfactory substitute for interrupts using exceptions and/or traps? If so, explain how. If not, explain why.
   - **It is possible to create a satisfactory substitute for interrupts using a combination of exceptions and traps on hardware that does not support interrupts.**
   
