@@ -110,7 +110,8 @@ When a computer boots, it sets the machine’s program counter to start executin
 * **Resource Allocation:** Implement fair resource allocation mechanisms to ensure that user-level programs do not monopolize access to virtualized I/O devices.
 * **Error Handling:** Design error handling mechanisms to gracefully manage device failures and protect the system from potential security breaches.
 
-12. System calls vs. procedure calls: How much more expensive is a system call than a procedure call? Write a simple test program to compare the cost of a simple procedure call to a simple system call (getpid() is a good candidate on UNIX; see the man page). To prevent the optimizing compiler from “optimizing out" your procedure calls, do not compile with optimization on. You should use a system call such as the UNIX gettimeofday() for time measurements. Design your code so the measurement overhead is negligible. Also, be aware that timer values in some systems have limited resolution (e.g., millisecond resolution).
+12. stem calls vs. procedure calls: How much more expensive is a system call than a procedure call? Write a simple test program to compare the cost of a simple procedure call to a simple system call (getpid() is a good candidate on UNIX; see the man page). To prevent the optimizing compiler from “optimizing out" your procedure calls, do not compile with optimization on. You should use a system call such as the UNIX gettimeofday() for time measurements. Design your code so the measurement overhead is negligible. Also, be aware that timer values in some systems have limited resolution (e.g., millisecond resolution).
+Explain the difference (if any) between the time required by your simple procedure call and simple system call by discussing what work each call must do.
   - **System calls are more expensive than procedure calls because they involve a switch from user mode to kernel mode, which requires additional hardware and software overhead.**
   
   To measure the cost difference, you can write a simple test program like this:
@@ -146,3 +147,27 @@ When a computer boots, it sets the machine’s program counter to start executin
   ```
   
   **When you run this program, you should see that the system call is significantly more expensive than the procedure call. The exact difference will vary depending on the system you are using.**
+
+13. Suppose you have to implement an operating system on hardware that supports interrupts and exceptions but does not have a trap instruction. Can you devise a satisfactory substitute for traps using interrupts and/or exceptions? If so, explain how. If not, explain why.
+  - **It is not possible to create a satisfactory substitute for traps using only interrupts and exceptions on hardware that does not support a trap instruction.**
+  
+  Traps are a special type of interrupt that is used to transfer control from user mode to kernel mode. They are typically invoked by executing a special instruction, such as the SVC instruction on ARM processors. When a trap occurs, the hardware saves the current processor state and jumps to a specific location in the kernel.
+  
+  Interrupts and exceptions are both mechanisms for transferring control from user mode to kernel mode, but they are not as flexible as traps. Interrupts are typically triggered by external events, such as the arrival of a network packet or the completion of a disk I/O operation. Exceptions are typically triggered by internal events, such as a division by zero or an attempt to access an invalid memory address.
+  
+  Neither interrupts nor exceptions can be used to transfer control to an arbitrary location in the kernel. This makes it difficult to implement a general-purpose operating system on hardware that does not support traps.
+  
+  For example, consider the following scenario:
+  
+  * A user-mode program is executing and encounters a page fault.
+  * The hardware generates a page fault exception.
+  * The operating system kernel needs to handle the page fault by loading the missing page into memory.
+  * The operating system kernel needs to return to the user-mode program after handling the page fault.
+  
+  If the hardware does not support traps, the operating system kernel would have to use a combination of interrupts and exceptions to implement this scenario. This would be a complex and error-prone process.
+  
+  In contrast, if the hardware supports traps, the operating system kernel could simply execute a trap instruction to transfer control to the page fault handler. This would be a much simpler and more reliable solution.
+  
+  **Therefore, it is not possible to create a satisfactory substitute for traps using only interrupts and exceptions on hardware that does not support a trap instruction.**
+14. Suppose you have to implement an operating system on hardware that supports exceptions and traps but does not have interrupts. Can you devise a satisfactory substitute for interrupts using exceptions and/or traps? If so, explain how. If not, explain why.
+
