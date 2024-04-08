@@ -80,4 +80,9 @@ Early versions of the x86 architecture (pre-2006) were not completely virtualiza
   - **b. How would you change the (old) x86 hardware to fix this problem?**
   
   One way to fix this problem would be to modify the x86 hardware so that popf always modifies the same flags in the PSW, regardless of whether it is run in privileged mode or unprivileged mode. This would ensure that the PSW is always consistent with the expected behavior of a virtual machine. Another way to fix this problem would be to provide a separate instruction that is used to modify the system flags in the PSW. This instruction would only be available in privileged mode, which would prevent user-level programs from modifying the system flags in an unexpected way.
-10. 
+  
+10. Which of the following components is responsible for loading the initial value in the program counter for an application program before it starts running: the compiler, the linker, the kernel, or the boot ROM?
+
+- **The boot ROM is responsible for loading the initial value in the program counter for an application program before it starts running.**
+
+When a computer boots, it sets the machine’s program counter to start executing at a pre-determined position in memory. Since the computer is not yet running, the initial machine instructions must be fetched and executed immediately after the power is turned on before the system has had a chance to initialize its DRAM. Instead, systems typically use a special read-only hardware memory (Boot ROM) to store their boot instructions. On most x86 personal computers, the boot program is called the BIOS, for “Basic Input/Output System”.
