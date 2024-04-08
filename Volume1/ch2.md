@@ -109,3 +109,40 @@ When a computer boots, it sets the machine’s program counter to start executin
 * **Hardware Virtualization Extensions:** Utilize hardware virtualization extensions, such as Intel VT-x or AMD-V, to provide additional isolation and security measures for virtualized I/O devices.
 * **Resource Allocation:** Implement fair resource allocation mechanisms to ensure that user-level programs do not monopolize access to virtualized I/O devices.
 * **Error Handling:** Design error handling mechanisms to gracefully manage device failures and protect the system from potential security breaches.
+
+12. System calls vs. procedure calls: How much more expensive is a system call than a procedure call? Write a simple test program to compare the cost of a simple procedure call to a simple system call (getpid() is a good candidate on UNIX; see the man page). To prevent the optimizing compiler from “optimizing out" your procedure calls, do not compile with optimization on. You should use a system call such as the UNIX gettimeofday() for time measurements. Design your code so the measurement overhead is negligible. Also, be aware that timer values in some systems have limited resolution (e.g., millisecond resolution).
+  - **System calls are more expensive than procedure calls because they involve a switch from user mode to kernel mode, which requires additional hardware and software overhead.**
+  
+  To measure the cost difference, you can write a simple test program like this:
+  
+  ```c
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <sys/time.h>
+  
+  int main() {
+    struct timeval start, end;
+  
+    // Measure the cost of a procedure call.
+    gettimeofday(&start, NULL);
+    int x = 5;
+    gettimeofday(&end, NULL);
+  
+    // Measure the cost of a system call.
+    gettimeofday(&start, NULL);
+    int y = getpid();
+    gettimeofday(&end, NULL);
+  
+    // Calculate the time difference.
+    double proc_time = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
+    double sys_time = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
+  
+    // Print the results.
+    printf("Procedure call time: %f microseconds\n", proc_time);
+    printf("System call time: %f microseconds\n", sys_time);
+  
+    return 0;
+  }
+  ```
+  
+  **When you run this program, you should see that the system call is significantly more expensive than the procedure call. The exact difference will vary depending on the system you are using.**
