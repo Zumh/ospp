@@ -13,4 +13,10 @@ process state. Explain why?
 - **Without privileged instructions**, applications would not be prevented from executing privileged instructions and could potentially gain control of the system.
 * **Without memory protection**, applications could overwrite kernel data structures or other applications' memory, leading to system crashes or security vulnerabilities.
 * **Without timer interrupts**, the operating system would not be able to regain control of the processor from a rogue process and could potentially hang.
-4. 
+
+4. Suppose you are tasked with designing the security system for a new web browser that supports rendering web pages with embedded web page scripts. What checks would you need to implement to ensure that executing buggy or malicious scripts could not corrupt or crash the browser?
+- **To ensure that executing buggy or malicious scripts does not corrupt or crash the browser, the following checks could be implemented:**
+* **Validating input:** Before executing any script, the browser should validate the input to ensure that it is well-formed and does not contain any malicious code. This can be done by using a variety of techniques, such as regular expressions, whitelisting, or blacklisting.
+* **Sandboxing:** The browser should run scripts in a sandboxed environment that prevents them from accessing or modifying the browser's memory or other resources. This can be done by using a variety of techniques, such as creating a separate process for each script or using a virtual machine.
+* **Restricting access to system resources:** The browser should restrict scripts from accessing system resources, such as the file system or network, without the user's explicit permission. This can be done by using a variety of techniques, such as using a security policy or using a content security policy.
+* **Monitoring script behavior:** The browser should monitor the behavior of scripts to detect any malicious activity. This can be done by using a variety of techniques, such as using a script debugger or using a intrusion detection system.
