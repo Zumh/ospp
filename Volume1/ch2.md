@@ -39,10 +39,10 @@ process state. Explain why?
 7. Most hardware architectures provide an instruction to return from an interrupt, such as iret. This instruction switches the mode of operation from kernel-mode to user-mode.
   a. Explain where in the operating system this instruction would be used.
   b. Explain what happens if an application program executes this instruction.
-- **a. Where in the operating system this instruction would be used:**
- 
-The iret instruction is used in the operating system to return from an interrupt, processor exception, or system call back to user mode. It is typically used at the end of an interrupt handler or system call handler to restore the user-level state and resume execution of the interrupted process.
-
-- **b. What happens if an application program executes this instruction:**
-
-If an application program executes the iret instruction, it will likely cause a processor exception. This is because the iret instruction can only be executed in kernel mode, and application programs are normally not allowed to execute kernel-mode instructions. Attempting to execute iret from user mode will result in an illegal instruction exception, and the operating system will likely terminate the application.
+  - **a. Where in the operating system this instruction would be used:**
+   
+  The iret instruction is used in the operating system to return from an interrupt, processor exception, or system call back to user mode. It is typically used at the end of an interrupt handler or system call handler to restore the user-level state and resume execution of the interrupted process.
+  
+  - **b. What happens if an application program executes this instruction:**
+  
+  If an application program executes the iret instruction, it will likely cause a processor exception. This is because the iret instruction can only be executed in kernel mode, and application programs are normally not allowed to execute kernel-mode instructions. Attempting to execute iret from user mode will result in an illegal instruction exception, and the operating system will likely terminate the application.
