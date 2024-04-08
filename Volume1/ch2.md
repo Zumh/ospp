@@ -73,8 +73,8 @@ process state. Explain why?
 
 Early versions of the x86 architecture (pre-2006) were not completely virtualizable — these systems could not guarantee to run unmodified guest operating systems properly. One problem was the popf “pop flags” instruction that restores the processor status word. When popf was run in privileged mode, it changed both the ALU flags (e.g., the condition codes) and the systems flags (e.g., the interrupt mask). When popf was run in unprivileged mode, it changed just the ALU flags.
 
-  a. Why do instructions like popf prevent transparent virtualization of the (old) x86 architecture?
-  b. How would you change the (old) x86 hardware to fix this problem?
+  - a. Why do instructions like popf prevent transparent virtualization of the (old) x86 architecture?
+  - b. How would you change the (old) x86 hardware to fix this problem?
 
    - **a. Why do instructions like popf prevent transparent virtualization of the (old) x86 architecture?**
   
@@ -83,3 +83,4 @@ Early versions of the x86 architecture (pre-2006) were not completely virtualiza
   - **b. How would you change the (old) x86 hardware to fix this problem?**
   
   One way to fix this problem would be to modify the x86 hardware so that popf always modifies the same flags in the PSW, regardless of whether it is run in privileged mode or unprivileged mode. This would ensure that the PSW is always consistent with the expected behavior of a virtual machine. Another way to fix this problem would be to provide a separate instruction that is used to modify the system flags in the PSW. This instruction would only be available in privileged mode, which would prevent user-level programs from modifying the system flags in an unexpected way.
+10. 
