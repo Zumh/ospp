@@ -27,4 +27,22 @@ process state. Explain why?
 * **Interrupts:** These are triggered by hardware events, such as a timer expiring or a device completing an I/O operation.
 * **Exceptions:** These are triggered by software events, such as a division by zero or an invalid memory access.
 * **System calls:** These are triggered by user programs to request services from the operating system, such as reading a file or starting a new process.
-6. 
+  
+6. Define four types of kernel-mode to user-mode transfers.
+- **Here are four types of kernel-mode to user-mode transfers:**
+
+* **New process:** The kernel creates a new process by copying the program into memory, setting the program counter to the first instruction of the process, setting the stack pointer to the base of the user stack, and switching to user mode.
+* **Resume after an interrupt, processor exception, or system call:** When the kernel finishes handling a request, it resumes execution of the interrupted process by restoring its program counter (in the case of a system call, the instruction after the trap), restoring its registers, and changing the  mode back to user level.
+* **Switch to a different process:** In some cases, such as on a timer interrupt, the kernel switches to a different process than the one that had been running before the interrupt. Since the kernel will eventually resume the old process, the kernel needs to save the process state — its program counter, registers, and so forth — in the process’s control block. The kernel can then resume a different process by loading its state — its program counter, registers, and so forth — from the process’s control block into the processor and then switching to user mode.
+* **User-level upcall:** Many operating systems provide user programs with the ability to receive asynchronous notification of events. The mechanism, which we describe in Section 2.8, is similar to kernel interrupt handling, except at user level.
+
+7. Most hardware architectures provide an instruction to return from an interrupt, such as iret. This instruction switches the mode of operation from kernel-mode to user-mode.
+  a. Explain where in the operating system this instruction would be used.
+  b. Explain what happens if an application program executes this instruction.
+- **a. Where in the operating system this instruction would be used:**
+ 
+The iret instruction is used in the operating system to return from an interrupt, processor exception, or system call back to user mode. It is typically used at the end of an interrupt handler or system call handler to restore the user-level state and resume execution of the interrupted process.
+
+- **b. What happens if an application program executes this instruction:**
+
+If an application program executes the iret instruction, it will likely cause a processor exception. This is because the iret instruction can only be executed in kernel mode, and application programs are normally not allowed to execute kernel-mode instructions. Attempting to execute iret from user mode will result in an illegal instruction exception, and the operating system will likely terminate the application.
