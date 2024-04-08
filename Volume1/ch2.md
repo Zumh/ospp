@@ -86,3 +86,26 @@ Early versions of the x86 architecture (pre-2006) were not completely virtualiza
 - **The boot ROM is responsible for loading the initial value in the program counter for an application program before it starts running.**
 
 When a computer boots, it sets the machine’s program counter to start executing at a pre-determined position in memory. Since the computer is not yet running, the initial machine instructions must be fetched and executed immediately after the power is turned on before the system has had a chance to initialize its DRAM. Instead, systems typically use a special read-only hardware memory (Boot ROM) to store their boot instructions. On most x86 personal computers, the boot program is called the BIOS, for “Basic Input/Output System”.
+
+11. We described how the operating system kernel mediates access to I/O devices for safety. Some newer I/O devices are virtualizable — they permit safe access from user-level programs, such as a guest operating system running in a virtual machine. Explain how you might design the hardware and software to get this to work. (Hint: The device needs much of the same hardware support as the operating system kernel.)
+
+- **To design hardware and software for virtualizable I/O devices, we can leverage the hardware support provided for the operating system kernel to ensure safe access from user-level programs.**
+
+**Hardware Support:**
+
+* **Privilege Levels:** Establish two privilege levels – kernel-mode and user-mode – to restrict access to sensitive operations and system resources.
+* **Protected Instructions:** Designate certain instructions as privileged and only executable by the kernel.
+* **Memory Protection:** Implement memory management units or page tables to restrict user-level programs from accessing kernel memory, device registers, and other protected areas.
+* **Timer Interrupts:** Provide a hardware timer that can periodically interrupt the processor to regain control from the current process.
+
+**Software Design:**
+
+* **Virtual Device Drivers:** Create device drivers that implement the device's functionality in user mode, providing a safe and isolated execution environment.
+* **System Call Interface:** Define a system call interface that allows user-level programs to access virtual devices through the kernel. The kernel will validate and translate these system calls to appropriate instructions for the device driver.
+* **Guest Operating System Interaction:** For virtual machines, the guest operating system must be aware of the virtual device drivers and interact with them through the system call interface. The host operating system will provide necessary hardware virtualization support to make the guest operating system's access to virtual devices appear as if they were real hardware devices.
+
+**Additional Considerations:**
+
+* **Hardware Virtualization Extensions:** Utilize hardware virtualization extensions, such as Intel VT-x or AMD-V, to provide additional isolation and security measures for virtualized I/O devices.
+* **Resource Allocation:** Implement fair resource allocation mechanisms to ensure that user-level programs do not monopolize access to virtualized I/O devices.
+* **Error Handling:** Design error handling mechanisms to gracefully manage device failures and protect the system from potential security breaches.
