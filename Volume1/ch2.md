@@ -170,4 +170,24 @@ Explain the difference (if any) between the time required by your simple procedu
   
   **Therefore, it is not possible to create a satisfactory substitute for traps using only interrupts and exceptions on hardware that does not support a trap instruction.**
 14. Suppose you have to implement an operating system on hardware that supports exceptions and traps but does not have interrupts. Can you devise a satisfactory substitute for interrupts using exceptions and/or traps? If so, explain how. If not, explain why.
+  - **It is possible to create a satisfactory substitute for interrupts using a combination of exceptions and traps on hardware that does not support interrupts.**
+  
+  Exceptions are typically triggered by internal events, such as a division by zero or an attempt to access an invalid memory address. Traps are a special type of exception that is used to transfer control from user mode to kernel mode. They are typically invoked by executing a special instruction.
+  
+  On hardware that does not support interrupts, we can use a combination of exceptions and traps to implement a satisfactory substitute for interrupts. We can do this by defining a special exception that is triggered when a specific event occurs. For example, we could define an exception that is triggered when a timer expires.
+  
+  When the special exception occurs, the hardware would save the current processor state and jump to a specific location in the kernel. The kernel would then handle the event and return to the user-mode program.
+  
+  This approach would be less efficient than using interrupts, but it would be a viable alternative on hardware that does not support interrupts.
+  
+  Here is an example of how we could use a combination of exceptions and traps to implement a timer interrupt:
+  
+  1. Define a special exception that is triggered when a timer expires.
+  2. In the kernel, define a handler for the special exception.
+  3. In the user-mode program, set a timer to expire at a specific time.
+  4. When the timer expires, the hardware will trigger the special exception.
+  5. The kernel will handle the special exception by calling the handler for the special exception.
+  6. The kernel will return to the user-mode program.
+  
+  This approach would allow us to implement a timer interrupt on hardware that does not support interrupts.
 
