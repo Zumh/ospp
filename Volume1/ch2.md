@@ -68,4 +68,18 @@ process state. Explain why?
   * **Precise exceptions:** Precise exceptions allow the hardware to identify the exact instruction that caused an exception, enabling the operating system to handle exceptions more efficiently. This could reduce the overhead of handling exceptions, potentially offsetting the increased latency of the pipeline.
   
   Overall, while a large number of registers can improve performance, it also introduces challenges for the operating system. Careful design and implementation of hardware and software features are necessary to mitigate these challenges and ensure that the benefits of a large number of registers are realized.
+
+9. With virtual machines, the host kernel runs in privileged mode to create a virtual machine that runs in user mode. The virtual machine provides the illusion that the guest kernel runs on its own machine in privileged mode, even though it is actually running in user mode.
+
+Early versions of the x86 architecture (pre-2006) were not completely virtualizable — these systems could not guarantee to run unmodified guest operating systems properly. One problem was the popf “pop flags” instruction that restores the processor status word. When popf was run in privileged mode, it changed both the ALU flags (e.g., the condition codes) and the systems flags (e.g., the interrupt mask). When popf was run in unprivileged mode, it changed just the ALU flags.
+
+  a. Why do instructions like popf prevent transparent virtualization of the (old) x86 architecture?
+  b. How would you change the (old) x86 hardware to fix this problem?
+
+   - **a. Why do instructions like popf prevent transparent virtualization of the (old) x86 architecture?**
   
+  Instructions like popf prevent transparent virtualization of the old x86 architecture because they can be used to modify the processor status word (PSW) in a way that is not consistent with the expected behavior of a virtual machine. The PSW contains flags that control the processor's behavior, such as the interrupt mask and the condition codes. When popf is run in privileged mode, it modifies both the ALU flags and the system flags in the PSW. However, when popf is run in unprivileged mode, it only modifies the ALU flags. This discrepancy can cause problems for virtual machines because they rely on the PSW to maintain the illusion that the guest kernel is running on its own machine in privileged mode. If the PSW is modified in an unexpected way, the virtual machine may not be able to function properly.
+  
+  - **b. How would you change the (old) x86 hardware to fix this problem?**
+  
+  One way to fix this problem would be to modify the x86 hardware so that popf always modifies the same flags in the PSW, regardless of whether it is run in privileged mode or unprivileged mode. This would ensure that the PSW is always consistent with the expected behavior of a virtual machine. Another way to fix this problem would be to provide a separate instruction that is used to modify the system flags in the PSW. This instruction would only be available in privileged mode, which would prevent user-level programs from modifying the system flags in an unexpected way.
