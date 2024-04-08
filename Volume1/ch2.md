@@ -57,14 +57,15 @@ process state. Explain why?
   * **Reduced context switching overhead:** When switching between user and kernel mode, the operating system must save and restore the contents of the registers. A large number of registers would increase the time required for context switching, potentially impacting the overall performance of the system.
   * **Increased complexity:** A large number of registers would require more complex hardware and software to manage them, potentially making the system more difficult to design and implement.
   
-  **Hardware features that could be added to the design to mitigate these effects include:**
+  - **Hardware features that could be added to the design to mitigate these effects include:**
   
   * **Register renaming:** Register renaming allows the hardware to map logical registers to physical registers, enabling the compiler to use more registers than are physically available. This would reduce the impact of having a large number of registers on context switching overhead.
   * **Speculative execution:** Speculative execution allows the hardware to execute instructions based on predicted branch outcomes, potentially hiding the latency of accessing memory. This could reduce the impact of increased stack usage on execution times.
   
-  **Adding a 16-stage pipeline into the CPU with precise exceptions would affect the user-kernel switching overhead in the following ways:**
+  - **Adding a 16-stage pipeline into the CPU with precise exceptions would affect the user-kernel switching overhead in the following ways:**
   
   * **Increased latency:** A 16-stage pipeline would increase the number of cycles required to execute an instruction, potentially increasing the latency of user-kernel switches.
   * **Precise exceptions:** Precise exceptions allow the hardware to identify the exact instruction that caused an exception, enabling the operating system to handle exceptions more efficiently. This could reduce the overhead of handling exceptions, potentially offsetting the increased latency of the pipeline.
   
   Overall, while a large number of registers can improve performance, it also introduces challenges for the operating system. Careful design and implementation of hardware and software features are necessary to mitigate these challenges and ensure that the benefits of a large number of registers are realized.
+  
