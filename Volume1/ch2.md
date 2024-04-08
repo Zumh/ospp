@@ -48,9 +48,9 @@ process state. Explain why?
   If an application program executes the iret instruction, it will likely cause a processor exception. This is because the iret instruction can only be executed in kernel mode, and application programs are normally not allowed to execute kernel-mode instructions. Attempting to execute iret from user mode will result in an illegal instruction exception, and the operating system will likely terminate the application.
 
 8. A hardware designer argues that there is now enough on-chip transistors to provide 1024 integer registers and 512 floating point registers. As a result, the compiler should almost never need to store anything on the stack. As an operating system guru, give your opinion of this design.
-  a. What is the effect on the operating system of having a large number of registers?
-  b. What hardware features would you recommend adding to the design?
-  c. What happens if the hardware designer also wants to add a 16-stage pipeline into the CPU, with precise exceptions. How would that affect the user-kernel switching overhead?
+  - a. What is the effect on the operating system of having a large number of registers?
+  - b. What hardware features would you recommend adding to the design?
+  - c. What happens if the hardware designer also wants to add a 16-stage pipeline into the CPU, with precise exceptions. How would that affect the user-kernel switching overhead?
   - **A large number of registers would have the following effects on the operating system:**
   
   * **Reduced stack usage:** With a large number of registers, the compiler would be able to keep more variables and temporary values in registers, reducing the need to store them on the stack. This would lead to faster execution times, as accessing registers is faster than accessing memory.
