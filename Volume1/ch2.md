@@ -20,9 +20,11 @@ process state. Explain why?
 * **Sandboxing:** The browser should run scripts in a sandboxed environment that prevents them from accessing or modifying the browser's memory or other resources. This can be done by using a variety of techniques, such as creating a separate process for each script or using a virtual machine.
 * **Restricting access to system resources:** The browser should restrict scripts from accessing system resources, such as the file system or network, without the user's explicit permission. This can be done by using a variety of techniques, such as using a security policy or using a content security policy.
 * **Monitoring script behavior:** The browser should monitor the behavior of scripts to detect any malicious activity. This can be done by using a variety of techniques, such as using a script debugger or using a intrusion detection system.
+  
 5. Define three types of user-mode to kernel-mode transfers.
 - **Here are three types of user-mode to kernel-mode transfers:**
 
 * **Interrupts:** These are triggered by hardware events, such as a timer expiring or a device completing an I/O operation.
 * **Exceptions:** These are triggered by software events, such as a division by zero or an invalid memory access.
 * **System calls:** These are triggered by user programs to request services from the operating system, such as reading a file or starting a new process.
+6. 
