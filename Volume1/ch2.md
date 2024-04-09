@@ -215,6 +215,8 @@ Consider the stack on which the operating system must run when it receives the s
 #include <stdio.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 
 #define SYS_DUMMY 9999  // Define an invalid system call number
 
