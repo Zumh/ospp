@@ -202,3 +202,59 @@ Explain the difference (if any) between the time required by your simple procedu
     6. **Resume execution of the interrupted process.** The process that was interrupted can now continue executing.
 16. When an operating system receives a system call from a program, a switch to operating system code occurs with the help of the hardware. The hardware sets the mode of operation to kernel mode, calls the operating system trap handler at a location specified by the operating system, and lets the operating system return to user mode after it finishes its trap handling.
 Consider the stack on which the operating system must run when it receives the system call. Should this stack be different from the one the application uses, or could it use the same stack as the application program? Assume that the application program is blocked while the system call runs.
+  - **The operating system should use a different stack from the one used by the application program.**
+  
+    Here's why: 
+    
+    * The application program is blocked while the system call runs. This means that the operating system cannot access the application program's stack.
+    * The operating system needs to be able to track the state of the system call, which includes the arguments to the system call and the return value.
+    * The operating system needs to be able to handle interrupts and exceptions while the system call is running.
+
+17. Write a program to verify that the operating system on your computer correctly protects itself from rogue system calls. For a single system call — such as file system open — try all possible illegal calls: e.g., an invalid system call number, an invalid stack pointer, an invalid pointer stored on the stack, etc. What happens?
+```c
+#include <stdio.h>
+#include <sys/syscall.h>
+#include <unistd.h>
+
+#define SYS_DUMMY 9999  // Define an invalid system call number
+
+int make_syscall(long sysnum, long arg1, long arg2, long arg3, long arg4, long arg5) {
+  // Attempt to make a system call
+  return syscall(sysnum, arg1, arg2, arg3, arg4, arg5);
+}
+
+int main() {
+  // Try making a system call with an invalid number
+  long result = make_syscall(SYS_DUMMY, 1, 2, 3, 4, 5);
+  if (result == -1) {
+    perror("Invalid system call number");
+  } else {
+    printf("Unexpected success with invalid system call\n");
+  }
+
+  // Try making a system call with a bad stack pointer (risky)
+  char *bad_esp = (char *)malloc(1024);  // Allocate memory for bad pointer
+  memset(bad_esp, 'A', 1024);             // Fill with 'A'
+
+  result = make_syscall(1, (long)bad_esp, 2, 3, 4, 5);  // Cast bad_esp to long (risky)
+  free(bad_esp);                                          // Free allocated memory
+
+  if (result == -1) {
+    perror("Invalid stack pointer");
+  } else {
+    printf("Unexpected success with invalid stack pointer\n");
+  }
+
+  // Try making a system call with a bad pointer on the stack (risky)
+  char bad_ptr[4] = {'A', 'A', 'A', 'A'};  // Create a bad pointer on stack
+
+  result = make_syscall(1, (long)bad_ptr, 2, 3, 4, 5);
+  if (result == -1) {
+    perror("Invalid pointer on stack");
+  } else {
+    printf("Unexpected success with invalid pointer on stack\n");
+  }
+
+  return 0;
+}
+```
